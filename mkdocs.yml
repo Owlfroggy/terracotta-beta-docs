@@ -1,0 +1,59 @@
+site_name: Terracotta Beta
+site_url: https://owlfroggy.github.io/terracotta-docs/
+docs_dir: docs
+theme:
+  logo: assets/logo_monochrome.svg
+  favicon: assets/logo.svg
+  name: material
+  features:
+    # - navigation.sections
+    - navigation.path
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.indexes
+    - navigation.expand
+    - content.code.annotate
+    - content.tooltips
+  language: en
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: deep-orange
+markdown_extensions:
+  # - codehilite
+  - toc:
+      permalink: true
+      title: Table of Contents
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - abbr
+  - attr_list
+  - tables
+  - attr_list
+  - md_in_html
+nav:
+  - About: index.md
+extra_css:
+  - style.css
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Owlfroggy/terracotta
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/at9uBFXPxy
+plugins:
+  - search
+  - table-reader
