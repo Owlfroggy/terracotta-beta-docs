@@ -50,6 +50,7 @@ nav:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md
     - Process: code_blocks/process.md
+    - Action: code_blocks/action.md
 extra_css:
   - style.css
 extra:

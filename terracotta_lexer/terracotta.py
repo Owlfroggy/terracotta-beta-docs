@@ -67,7 +67,7 @@ class TerracottaLexer(RegexLexer):
             #call func and start process
             (r'(?:(?<=\W)|^)(call|start)(\s+\w*)',byGroup(Keyword,Name.Function)),
             #parenthetic function call
-            (r'([\w]+)(?=\s*\(.*\))',Name.Function),
+            (r'([\w]+)(?=\s*\()',Name.Function),
 
             #namespace being accessed
             (r'(\w+\s*)((?:\.)\s*)(?=\[\]|\[(?:\\\]|[^\]])*[^\\]\]|\[.*|\w*)',byGroup(Name.Namespace,Operator)),
