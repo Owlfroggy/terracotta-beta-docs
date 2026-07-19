@@ -8,13 +8,15 @@
     --md-primary-fg-color:          var(--tc-blue-dim); 
     --md-primary-fg-color--light:   var(--tc-blue-dim); 
     --md-primary-fg-color--dark:    var(--tc-blue-dim); 
-    --md-typeset-a-color:           var(--tc-blue); 
-
+    
     --md-accent-fg-color:           var(--tc-orange-dim); 
     --md-accent-fg-color--light:    var(--tc-orange-dim); 
     --md-accent-fg-color--dark:     var(--tc-orange-dim); 
-
+    
+    --md-typeset-a-color:           var(--tc-blue); 
+    --md-typeset-mark-color: #F9A45B4d;
     --md-code-bg-color: #141211;
+    
 
     --md-default-bg-color: #162026;
     --md-footer-bg-color: #081117;

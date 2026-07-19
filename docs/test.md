@@ -26,7 +26,8 @@ e
 
 line dingus: dongus;
 
-
+player.uuid;
+...plural: str;
 
 
 

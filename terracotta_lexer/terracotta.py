@@ -72,7 +72,7 @@ class TerracottaLexer(RegexLexer):
             #namespace being accessed
             (r'(\w+\s*)((?:\.)\s*)(?=\[\]|\[(?:\\\]|[^\]])*[^\\]\]|\[.*|\w*)',byGroup(Name.Namespace,Operator)),
             # 2. Match the trailing "property" if it was preceded by a dot
-            (r'(?<!.)(?<=\.)(\w+)\b', Name.Property),
+            (r'(?<=[^.]\.)(\w+)\b', Name.Property),
             
 
             #operators
