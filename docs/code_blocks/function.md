@@ -114,7 +114,7 @@ function send_joined_message(joiner: txt, ...parts: txt) {
 ### Return Types
 Functions may indicate that they will return values placing a colon followed by any number of types after the parameter list. If there is no parameter list, the colon should be placed after the function's name.
 
-Functions MUST indicate their return types in order to return values.
+To return values, place them after the `return` keyword. Functions MUST indicate their return types in order to return values.
 
 ```tc
 function waste_cpu(input: any): any {
@@ -127,6 +127,14 @@ function return_seven: num {
 
 function return_multiple(): num, str {
     return 42, "yee haw";
+}
+
+function woah(): str {
+    if (num.random(1,2) == 1) {
+        return "good!";
+    } else {
+        return "bad :(";
+    }
 }
 ```
 
