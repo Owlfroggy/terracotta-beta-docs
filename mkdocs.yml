@@ -52,6 +52,7 @@ nav:
     - Process: code_blocks/process.md
     - Action: code_blocks/action.md
     - Control: code_blocks/control.md
+    - Select Object: code_blocks/select_object.md
 extra_css:
   - style.css
 extra:

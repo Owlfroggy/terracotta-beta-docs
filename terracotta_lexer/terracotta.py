@@ -76,7 +76,7 @@ class TerracottaLexer(RegexLexer):
             
 
             #operators
-            (r'[=*+-/:?<>%^!]',Operator),
+            (r'[=*+-/:?<>%^!|&]',Operator),
 
             #color types names as type names on their own if nothing else has claimed them already
             (r'(?:(?<=\W)|^)(str|num|vec|loc|pot|snd|txt|item|list|dict|par|any|var|csnd|litem)(?![\w])',Name.Class),
