@@ -55,7 +55,7 @@ class TerracottaLexer(RegexLexer):
             (r'(?<![A-Za-z0-9_])(?!_)((?:\d|_(?!\.))*\.?(0[bB])?(?!_)(?:\d|_(?![^0-9]))+)', Number),
             
             #variables
-            (r'\b(local|global|saved|line)(\s*\w+)?(?:(\s*\:\s*)(\w+))?', byGroup(Keyword.Scope, Name.Variable, Operator, Name.Class)),
+            (r'\b(local|global|saved|line)\b(\s*\w+)?(?:(\s*\:\s*)(\w+))?', byGroup(Keyword.Scope, Name.Variable, Operator, Name.Class)),
 
             #constructors
             (r'(?:(?<=\W)|^)(vec|snd|csnd|loc|par|item|litem|pot)(?=\s*\()',Name.Class),
