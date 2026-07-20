@@ -70,7 +70,7 @@ class TerracottaLexer(RegexLexer):
             (r'([\w]+)(?=\s*\()',Name.Function),
 
             #namespace being accessed
-            (r'(\w+\s*)((?:\.)\s*)(?=\[\]|\[(?:\\\]|[^\]])*[^\\]\]|\[.*|\w*)',byGroup(Name.Namespace,Operator)),
+            (r'(?<!\.)(\w+\s*)((?:\.)\s*)(?=\[\]|\[(?:\\\]|[^\]])*[^\\]\]|\[.*|\w*)',byGroup(Name.Namespace,Operator)),
             # 2. Match the trailing "property" if it was preceded by a dot
             (r'(?<=[^.]\.)(\w+)\b', Name.Property),
             
