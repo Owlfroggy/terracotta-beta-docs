@@ -46,6 +46,9 @@ markdown_extensions:
   - md_in_html
 nav:
   - About: index.md
+  - Getting Started:
+    - Installation Guide: getting_started/installation_guide.md
+    - Plot Setup: getting_started/plot_setup.md
   - Code Blocks:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md
