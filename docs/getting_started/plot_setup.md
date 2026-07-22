@@ -45,6 +45,12 @@ If you haven't already installed the VSCode extension and the Terracotta Client 
         }
         ```
 
+!!! danger "Limit what plots you can compile to!"
+    It's highly recommended to add the `"plotIds"` parameter to your `launch.json`. This will prevent you from accidentally hitting compile on the wrong plot and deleting code!
+    ```ts title="Add this to your launch.json configuration and replace 12345 with the id of the plot you want to compile to"
+    "plotIds": [12345]
+    ```
+
 ## Compiling a Project
 Terracotta script files have the extension `.tc`. Create a script in your project folder to test with:
 
