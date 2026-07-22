@@ -58,6 +58,7 @@ nav:
     - Control: code_blocks/control.md
     - Select Object: code_blocks/select_object.md
     - If / Else: code_blocks/if.md
+    - Repeat (loops): code_blocks/repeat.md
 extra_css:
   - style.css
 extra:
