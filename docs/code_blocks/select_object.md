@@ -30,6 +30,9 @@ select allPlayers;
 select allPlayers();
 ```
 
+??? question "Expand this box to convert Select Object Actions to their Terracotta equivalents"
+    <tc-action-translator block="Select Object">Loading...</tc-action-translator>
+
 ## Conditions
 
 For selection actions that use a condition, put the condition inside the parentheses following the action name. For information on how to write conditions, see [Conditional Expressions](../language_features/expressions.md#conditional-expressions).

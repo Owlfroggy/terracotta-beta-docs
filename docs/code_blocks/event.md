@@ -26,6 +26,10 @@ Individual files can contain multiple different declarations by placing them one
 
 Each event can only be declared once per project: If you have already declared the Join player event, all code to be run when a player joins must exist within that one declaration since you cannot declare the Join event anywhere else.
 
+??? question "Expand this box to convert events to their Terracotta declarations"
+    Click on "Player Event" to change to a different code block.
+    <tc-action-translator block="Player Event">Loading...</tc-action-translator>
+
 ## Accessing Event Actions and Values
 
 The `event` namespace can be used to access actions and game values related to events.

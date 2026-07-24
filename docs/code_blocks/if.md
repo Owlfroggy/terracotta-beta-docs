@@ -1,5 +1,4 @@
 # If / Else
-For information on how to write conditions, see [Conditional Expressions](../language_features/expressions.md#conditional-expressions).
 
 ## If Statements
 If statements use the `if` keyword followed by a condition wrapped in parentheses.
@@ -8,6 +7,12 @@ if (condition) {
     // ...code
 }
 ```
+
+For information on how to write conditions, see [Conditional Expressions](../language_features/expressions.md#conditional-expressions). For basic conditions, use the tool below.
+
+??? question "Expand this box to convert If Actions to their Terracotta equivalents"
+    Click on "If Player" to change to a different code block.
+    <tc-action-translator block="If Player">Loading...</tc-action-translator>
 
 ### Inverting (NOT arrow equivalent)
 To invert the entirety of an if statement's condition, an exclamation point `!` can be placed in front of the condition's parentheses.

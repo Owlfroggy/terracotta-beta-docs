@@ -43,6 +43,12 @@ player.givePotionEffect(pot("Speed"), particles="None", overwrite="False");
 entity.damage(5);
 ```
 
+??? question "Expand this box to convert Player Actions to their Terracotta equivalents"
+    <tc-action-translator block="Player Action">Loading...</tc-action-translator>
+
+??? question "Expand this box to convert Entity Actions to their Terracotta equivalents"
+    <tc-action-translator block="Entity Action">Loading...</tc-action-translator>
+
 ### Targets
 `player` and `entity` are equivalent to placing down a Player/Entity action and not choosing a target. 
 If a selection is active they will act on the selection, otherwise they will act on the default target.
@@ -118,3 +124,6 @@ event.uncancel();
 
 event.setDeathMessage(s"%victim went kablooie :(");
 ```
+
+??? question "Expand this box to convert Game Actions to their Terracotta equivalents"
+    <tc-action-translator block="Entity Action">Loading...</tc-action-translator>

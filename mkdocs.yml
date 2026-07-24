@@ -50,6 +50,8 @@ nav:
     - Installation Guide: getting_started/installation_guide.md
     - Plot Setup: getting_started/plot_setup.md
     - Language Overview: getting_started/language_overview.md
+  - Tools:
+    - Action Converter: action_converter.md
   - Code Blocks:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md
