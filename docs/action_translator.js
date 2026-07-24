@@ -5,7 +5,10 @@ const DATADUMP_VERSION = "1.0.0-beta.4";
 let datadump = null;
 async function loadData() {
   try {
-    const response = await fetch('/terracotta-docs/assets/datadump_1.0.0-beta.4.json'); 
+    const baseUrl = window.siteBaseUrl || '/';
+    const assetRelativePath = `${baseUrl}assets/datadump_${DATADUMP_VERSION}.json`;
+    const targetUrl = new URL(assetRelativePath, window.location.href);
+    const response = await fetch(targetUrl); 
     
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

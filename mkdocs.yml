@@ -5,6 +5,7 @@ theme:
   logo: assets/logo_monochrome.svg
   favicon: assets/logo.svg
   name: material
+  custom_dir: overrides
   features:
     # - navigation.sections
     - navigation.path
