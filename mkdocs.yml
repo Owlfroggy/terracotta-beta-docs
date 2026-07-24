@@ -61,6 +61,8 @@ nav:
     - Repeat (loops): code_blocks/repeat.md
 extra_css:
   - style.css
+extra_javascript:
+  - action_translator.js
 extra:
   social:
     - icon: fontawesome/brands/github

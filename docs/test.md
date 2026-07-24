@@ -2,6 +2,13 @@ test page for this website
 
 note: the code here is from [this repo](https://github.com/Owlfroggy/piston-jam-game)
 
+
+??? tip "Expand this box to convert DiamondFire code blocks to their Terracotta equivalents."
+    <tc-action-translator block="Player Action">Loading...</tc-action-translator>
+
+??? tip "Expand this box to convert DiamondFire code blocks to their Terracotta equivalents."
+    <tc-action-translator block="Control">Loading...</tc-action-translator>
+
 ## syntax highlighting test
 
 ```tc
