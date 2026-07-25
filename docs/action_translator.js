@@ -391,7 +391,6 @@ class ActionTranslator extends HTMLElement {
         for (currentIndex = 0; currentIndex < dropdown.children.length; currentIndex++) {
           if (dropdown.children.item(currentIndex) == focusedDropdownOption) break;
         }
-        console.log(currentIndex);
         index = currentIndex + direction;
       }
 
@@ -413,7 +412,6 @@ class ActionTranslator extends HTMLElement {
       if (dropdownAttach == blockInput) actionInput.focus();
       if (focusedDropdownOption && focusedDropdownOption.parentElement == dropdown) {
         dropdownAttach.value = focusedDropdownOption.textContent;
-        console.log(focusedDropdownOption.parentElement);
       }
       attachDropdown(null)
       refreshCodeBlock();
@@ -430,7 +428,6 @@ class ActionTranslator extends HTMLElement {
         entries = getActionsOfBlock(block);
       }
 
-      console.log(dropdownAttach.value);
       entries = entries
         .filter(v => v.toLowerCase().includes(dropdownAttach.value.toLowerCase()))
         .sort((a, b) => {
