@@ -25,13 +25,16 @@ def byGroup(*tokens: _TokenType): #realized after the fact that this exists buil
 
     return byGroupTokenProvider
 
-def highlightEscapeSequences(_, m: re.Match):
+def highlightEscapeSequences(_, m: re.Match, g: _TokenType = String):
     lastEnd = 0
     for thism in re.finditer(r'\\u[A-Fa-f0-9]{4}|\\x[A-Fa-f0-9]{2}|\\u\{[^}]*\}|\\[\'\"n\\&]',m.group(0)):
-        yield (lastEnd,thism.start()), String, m.group(0)[lastEnd:thism.start()]
+        yield (lastEnd,thism.start()), g, m.group(0)[lastEnd:thism.start()]
         yield thism.span(), String.Escape, thism.group(0)
         lastEnd = thism.end()
-    yield (lastEnd, len(m.group(0))), String, m.group(0)[lastEnd:len(m.group(0))]
+    yield (lastEnd, len(m.group(0))), g, m.group(0)[lastEnd:len(m.group(0))]
+
+def highlightNumEscapeSequences(_, m: re.Match):
+    yield from highlightEscapeSequences(_, m, Number)
 
 
 class TerracottaLexer(RegexLexer):
@@ -48,9 +51,11 @@ class TerracottaLexer(RegexLexer):
             (r'//.*',Comment),
             (r'/\*',Comment.Multiline, 'multilinecomment'),
 
+            # strings
+            (r'(?:(?:(?<=\W)|^)s)?((\"|\')(?:\\\2|(?!\2).)*(?:\2|$|\\))', highlightEscapeSequences),
 
             # numbers
-            (r'(?:(?:(?<=\W)|^)s)?((\"|\')(?:\\\2|(?!\2).)*(?:\2|$|\\))', highlightEscapeSequences),
+            (r'(?:(?:(?<=\W)|^)n)((\"|\')(?:\\\2|(?!\2).)*(?:\2|$|\\))', highlightNumEscapeSequences),
             (r'(?<![A-Za-z0-9_])(?!_)((?:[0-9A-fa-f]|_(?!\.))*(0[xX])\.?(?!_)(?:[0-9A-fa-f]|_(?![^0-9A-fa-f]))+)', Number),
             (r'(?<![A-Za-z0-9_])(?!_)((?:\d|_(?!\.))*\.?(0[bB])?(?!_)(?:\d|_(?![^0-9]))+)', Number),
             
