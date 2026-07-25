@@ -79,7 +79,20 @@ line numbers: list[num] = [5, 10, 15];
 line numbers = [5, 10, 15]; // numbers is typed as list[any] here
 ```
 
-As long as you declare your variable's types you shouldn't run into any type issues, but if you ever need to tell the compiler to treat a variable a certain way you can use the `as` keyword
+!!! info "Use the `declare` keyword!"
+    When you declare a `global`, `saved`, or `local` variable, that declaration will be limited to the file or event/function/process it is placed in. If you want to make a variable's type known to all files, put the `declare` keyword before its declaration.
+    ```tc title="Example script"
+    // This coins variable will now be available for use in all files
+    declare saved "coins %uuid": num;
+
+    gameevent startup {
+        // Declaring inside events/functions/processes is useful when you need to
+        // initialize a variable right away but still have it be accessible everywhere
+        declare global config = /* ... */;
+    }
+    ```
+
+As long as you properly declare your variable's types you shouldn't run into any type issues, but if you ever need to tell the compiler to treat a variable a certain way you can use the `as` keyword.
 ```tc
 line power; // will be typed as 'any'
 
