@@ -1,6 +1,6 @@
 ## Syntax
 
-Lists are created by enclosing values in square brackets and seperating them with commas. The final value is allowed to have a trailing comma.
+Lists are created by enclosing values in square brackets and separating them with commas. The final value is allowed to have a trailing comma.
 
 ```tc
 ["apple","orange","pear"]
@@ -48,14 +48,14 @@ Lists start at index `1`, NOT `0`.
 
 ## Iteration
 To iterate over a list, use a [For Loop](../code_blocks/repeat.md#iterating-over-values).
-```tc title="Example"
+```tc
 for (line value of [1,17,400_006]) {
     player.sendMessage(value);
 }
 ```
 
 As long as the variable you're iterating over has been properly declared, you shouldn't have to worry about types. However, If you NEED to override the type of a variable when iterating over it, cast the value on the right side of `of` using the `as` keyword. 
-```tc title="Example"
+```tc
 for (line value of probably_a_list_of_numbers as list[num]) {
     player.sendMessage(value);
 }
@@ -64,7 +64,7 @@ for (line value of probably_a_list_of_numbers as list[num]) {
 ## Nesting
 Lists and dictionaries can be nested. However, it's important keep in mind that DiamondFire passes lists and dictionaries as copies and not references so behavior regarding nested data may not be intuitive.
 
-```tc title="Example"
+```tc
 line teamConfigurations: list[list[str]] = [
     ["red","blue"],
     ["green","yellow"]
@@ -83,7 +83,7 @@ player.sendMessage(teamConfigurations[1]); // [red, blue]
 ## Operations
 ### + (Addition)
 #### `txt` + `list`: `txt`
-Stringifies the list then adds it onto the left Styled Text.
+Stringifies the List then adds it onto the left Styled Text.
 ```tc
 s"Abilities: " + ["doubleJump","dash"] = s"Abilities: [doubleJump, dash]"
 ["Red Team","Blue Team"] + s" have tied the match!" = s"[Red Team, Blue Team] have tied the match!"
