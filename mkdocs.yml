@@ -55,6 +55,7 @@ nav:
     - Action Converter: action_converter.md
   - Code Values:
     - Number: code_values/number.md
+    - String: code_values/string.md
   - Code Blocks:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md
