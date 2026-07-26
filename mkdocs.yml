@@ -59,6 +59,7 @@ nav:
     - Styled Text: code_values/styled_text.md
     - List: code_values/list.md
     - Dictionary: code_values/dictionary.md
+    - Vector: code_values/vector.md
   - Code Blocks:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md
