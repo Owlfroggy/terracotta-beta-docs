@@ -60,6 +60,7 @@ nav:
     - List: code_values/list.md
     - Dictionary: code_values/dictionary.md
     - Vector: code_values/vector.md
+    - Location: code_values/location.md
   - Code Blocks:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md
