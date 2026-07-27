@@ -62,6 +62,7 @@ nav:
     - Vector: code_values/vector.md
     - Location: code_values/location.md
     - Potion: code_values/potion.md
+    - Sound: code_values/sound.md
   - Code Blocks:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md
