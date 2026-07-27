@@ -1,6 +1,6 @@
 // this might actually genuinely be the worst code ive ever written
 // i will probably go to hell for this
-const DATADUMP_VERSION = "1.0.0-beta.4";
+const DATADUMP_VERSION = "1.0.0-beta.4_1";
 
 let datadump = null;
 async function loadData() {
@@ -79,6 +79,24 @@ const conditionOperatorMap = {
   ">": ">",
   "=": "==",
   "!=": "!=",
+}
+
+function convertGameValue(gameValueName) {
+  const gameValueData = datadump.game_values[gameValueName];
+  if (!gameValueData) return gameValueName == '' ? "Generated code appears here" : 'Invalid game value name';
+  let namespaceName;
+  if (gameValueData.target_type == "UNTARGETED") {
+    namespaceName = datadump.event_namespace_values.includes(gameValueName) ? "event" : "game";
+  } else if (gameValueData.target_type == "TARGETS_ENTITIES") {
+    namespaceName = "defaultEntity";
+  } else {
+    namespaceName = "default";
+  }
+  return (
+    `<span class="nn">${namespaceName}</span>`
+    +`<span class="o">.</span>`
+    +`<span class="py">${gameValueData.tc_name}</span>`
+  );
 }
 
 function convert(blockName, actionSignName) {
@@ -315,18 +333,20 @@ class ActionTranslator extends HTMLElement {
     const id  = ActionTranslator.latestId;
     ActionTranslator.latestId++;  
     const defaultAction = this.getAttribute('block') ?? "Player Action";
-    this.innerHTML = 
+    const gameValueMode = defaultAction == "Game Value";
+
+    this.innerHTML =
 `
 <div class="inventory_bg slicebg">
-    <div class="mctext title">DF Action » Terracotta Converter</div>
-    <div class="mctext">Code block:</div>
-    <div class="dropdown_bg slicebg">
+    <div class="mctext title">DF ${gameValueMode ? 'Game Value' : 'Action'} » Terracotta Converter</div>
+    <div class="mctext _blockpart">Code block:</div>
+    <div class="dropdown_bg slicebg _blockpart">
       <input type="text" spellcheck="false" class="mctext shadow editbox _block" value="${defaultAction}" placeholder="Click to edit"></input>
     </div>
 
     <div style="height: calc(var(--pixel-scale)*2);"></div>
 
-    <div class="mctext">Action (sign name):</div>
+    <div class="mctext">${gameValueMode ? 'Game Value' : 'Action (sign name)'}:</div>
     <div class="dropdown_bg slicebg">
       <input id="action" spellcheck="false" type="text" class="mctext shadow editbox _action" placeholder="Click to edit"></input>
     </div>
@@ -343,6 +363,12 @@ class ActionTranslator extends HTMLElement {
     const blockInput = this.getElementsByClassName("_block")[0];
     const actionInput = this.getElementsByClassName("_action")[0];
     const codeBox = this.getElementsByClassName("mccodebox")[0];
+
+    if (gameValueMode) {
+      for (const elm of this.getElementsByClassName("_blockpart")) {
+        elm.hidden = true;
+      }
+    }
 
     /** @type {HTMLElement} */
     const dropdown = this.getElementsByClassName("autocomplete_dropdown")[0];
@@ -425,7 +451,11 @@ class ActionTranslator extends HTMLElement {
         entries = [...selectableBlocks];
       } else if (dropdownAttach == actionInput) {
         let block = blockInput.value.toUpperCase();
-        entries = getActionsOfBlock(block);
+        if (gameValueMode) {
+          entries = Object.keys(datadump.game_values);
+        } else {
+          entries = getActionsOfBlock(block);
+        }
       }
 
       entries = entries
@@ -471,7 +501,8 @@ class ActionTranslator extends HTMLElement {
 
     function refreshCodeBlock() {
       const button = `<nav class="md-code__nav"><button class="md-code__button" title="Copy to clipboard" data-clipboard-target="#_converter_${id}" data-md-type="copy"></button></nav>`;
-      codeBox.innerHTML = button + '<div class="codecontents">'+convert(blockInput.value, actionInput.value)+"</div>";
+      const converted = gameValueMode ? convertGameValue(actionInput.value) : convert(blockInput.value, actionInput.value);
+      codeBox.innerHTML = button + '<div class="codecontents">'+converted+"</div>";
     }
     refreshCodeBlock();
 
