@@ -53,6 +53,8 @@ nav:
     - Language Overview: getting_started/language_overview.md
   - Tools:
     - Action/Value Converter: action_converter.md
+  - Language Features:
+    - Expressions: language_features/expressions.md
   - Code Values:
     - Number: code_values/number.md
     - String: code_values/string.md

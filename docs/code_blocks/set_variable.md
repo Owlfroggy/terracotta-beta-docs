@@ -1,5 +1,5 @@
 !!! info
-    Math operations can be done much easier with Expressions. You should only do math via Set Variable actions when you want absolute control over a template's codeblocks, otherwise it's easier to let the compiler handle it for you.
+    Math operations can be done much easier with [Expressions](../language_features/expressions.md). You should only do math via Set Variable actions when you want absolute control over a template's codeblocks, otherwise it's easier to let the compiler handle it for you.
 ## Syntax
 Set Variable action syntax is identical to [normal Action](action.md) syntax, just with different namespaces. 
 
