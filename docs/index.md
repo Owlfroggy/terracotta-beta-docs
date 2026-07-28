@@ -24,7 +24,7 @@ multiple functions.
 
 - Item libraries. Items can be edited right in your Minecraft client then easily referenced in code. In-lined NBT *is* in fact a war crime.
 
-- Human-compatable syntax. Terracotta looks and feels like an actual programming language, not like bytecode.
+- Human-compatible syntax. Terracotta looks and feels like an actual programming language, not like bytecode.
 
 - Automated template placement. Going from Terracotta code to a playable plot is as easy as pressing `f5`.
 

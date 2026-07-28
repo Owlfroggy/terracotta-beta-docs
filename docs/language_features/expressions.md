@@ -1,6 +1,6 @@
 # Expressions
 
-Expressions are one of Terracotta's most powerful features. They allow you to conveniently generate complex values in the places they're actually being used, and they let you forget about having to manually juggle all the indermediate temporary variables.
+Expressions are one of Terracotta's most powerful features. They allow you to conveniently generate complex values in the places they're actually being used, and they let you forget about having to manually juggle all the intermediate temporary variables.
 
 In Terracotta, you can write an expression anywhere you can put a value. If you're unsure whether or not a certain value accepts expressions, just try it! It will likely just work, and if it doesn't you'll be given a convenient error informing you of the exception.
 
@@ -31,7 +31,7 @@ Terracotta supports the following operators:
 
 ## Order of Operations
 
-Terracotta operators follow a similar order of operations to most normal programming langauges. Arithmetic operations follow PEMDAS/BEDMAS/BODMAS. For a complete breakdown, expand the box below.
+Terracotta operators follow a similar order of operations to most normal programming languages. Arithmetic operations follow PEMDAS/BEDMAS/BODMAS. For a complete breakdown, expand the box below.
 
 ??? info "Operator precedence" 
     Operations closer to the top of this list are evaluated before things closer to the bottom. Operations on the same line of this list are evaluated from left to right.
@@ -88,7 +88,7 @@ For more information on calling functions, see [Action](../code_blocks/action.md
 ## Incrementors
 Incrementors do an operation to a variable without having to write out `variablename = variablename <operation> <value>`.
 
-```tc title="Incremetors"
+```tc title="Incrementors"
 global added      +=  10;
 global subtracted -=  2389;
 global multiplied *=  100;
@@ -319,7 +319,7 @@ In the example `a || b`, `b` will not be checked at all if `a` is true. This is 
     If first_func() instead returned `1`, you would see both `first func ran!` and `second func ran!`. The left side of `&&` would be true, which would mean the right side *would* need to be evaluated and `second_func()` would execute.
 
 ### Conditions as Values
-Conditional expressions aren't limited to contexts that expect conditions. Placing them other contexts will cause them to evaluate to `0` if the condition is false or `1` if the condition is true.
+Conditional expressions aren't limited to contexts that expect conditions. Placing them in other contexts will cause them to evaluate to `0` if the condition is false or `1` if the condition is true.
 
 ```tc
 // prints "1" if the player is flying
