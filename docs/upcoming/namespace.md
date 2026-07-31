@@ -388,7 +388,7 @@ namespace block_type.obsidian {
 ```
 
 ## Dynamic Member Access
-To dynamically access the members of a namespace, use square bracket syntax. Only namespaces with [Schemas](#schema-types) can be dynamically accessed. Dynamic access can reach variables, functions, processes, and sub-namespaces.
+To dynamically access the members of a namespace, use square bracket syntax. Only namespaces with [Schemas](#schema-types) support dynamic access. Dynamic access can reach variables, functions, processes, and sub-namespaces.
 
 ```tc title="Example namespace"
 namespace items {
