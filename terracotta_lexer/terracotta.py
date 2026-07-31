@@ -66,11 +66,11 @@ class TerracottaLexer(RegexLexer):
             (r'(?:(?<=\W)|^)(vec|snd|csnd|loc|par|item|litem|pot)(?=\s*\()',Name.Class),
 
             #keywords
-            (r'(?:(?<=\W)|^)(select|filter|if|repeat|else|do|while|for|as|of|to|return|returnmult|break|continue|endthread|endallthreads|wait|print|perselected)(?![\w])',Keyword),
-            (r'(?:(?<=\W)|^)(playerevent|entityevent|gameevent|function|process|lscancel|declare)(?![\w])',Keyword.Declaration),
+            (r'(?:(?<=\W)|^)(start|call|import|select|filter|if|repeat|else|do|while|for|as|of|to|return|returnmult|break|continue|endthread|endallthreads|wait|print|perselected)(?![\w])',Keyword),
+            (r'(?:(?<=\W)|^)(playerevent|entityevent|gameevent|function|process|lscancel|declare|namespace|schema|macro)(?![\w])',Keyword.Declaration),
             
             #call func and start process
-            (r'(?:(?<=\W)|^)(call|start)(\s+\w*)',byGroup(Keyword,Name.Function)),
+            # (r'(?:(?<=\W)|^)(call|start)(\s+\w*)',byGroup(Keyword,Name.Function)),
             #parenthetic function call
             (r'([\w]+)(?=\s*\()',Name.Function),
 
