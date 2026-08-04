@@ -322,15 +322,15 @@ In the example `a || b`, `b` will not be checked at all if `a` is true. This is 
 Conditional expressions aren't limited to contexts that expect conditions. Placing them in other contexts will cause them to evaluate to `0` if the condition is false or `1` if the condition is true.
 
 ```tc
-// prints "1" if the player is flying
-// prints "0" if they are not
+// prints 1 if the player is flying
+// prints 0 if they are not
 print(default.isFlying());
 ```
 
 This rule also applies to more complex conditions.
 ```tc
-// will be "1" if the player is sprint-sneaking
-// will be "0" otherwise
+// will be 0 if the player is sprint-sneaking
+// will be 1 otherwise
 line not_sprint_sneaking = !(default.isSprinting() && default.isSneaking());
 ```
 
