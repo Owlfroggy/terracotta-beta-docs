@@ -7,6 +7,18 @@ loc(x: num, y: num, z: num, pitch?: num, yaw?: num)
 
 `pitch` and `yaw` are optional and will default to `0` if omitted.
 
+## Coordinate Access
+The coordinates of locations can be accessed with a dot (`.`) followed by `x`, `y`, `z`, `pitch`, or `yaw`. In addition to getting the value of the coordinate, the coordinate can also be assigned to.
+```tc
+if (default.location.y > 255) {
+    line plr_loc = default.location;
+    plr_loc.y = 255;
+
+    default.teleport(plr_loc);
+    default.sendMessage("Stay in bounds!");
+}
+```
+
 ## Floating-Point Behavior
 Locations share the same floating-point behavior as [Vectors](vector.md#floating-point-behavior).
 

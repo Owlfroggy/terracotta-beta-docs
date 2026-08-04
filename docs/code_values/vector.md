@@ -10,6 +10,18 @@ The `vec` constructor can also be passed a single number, creating a Vector with
 vec(value: num)
 ```
 
+## Component Access
+The components of vectors can be accessed with a dot (`.`) followed by `x`, `y`, or `z`. In addition to getting the value of the component, the component can also be assigned to.
+```tc
+line v = vec(1,2,3);
+print(v.y); // 2
+
+v.x = 10;
+v.y *= 4;
+v.z -= 2;
+print(v); // <10, 8, 1>
+```
+
 ## Floating-Point Behavior
 Unlike numbers which have a fixed precision 3 decimal points, the components of Vectors are stored internally by DiamondFire as floating-point numbers. This means they benefit from greatly increased precision. However, any time you store a component of a Vector into a Number, that extra precision is lost.
 
@@ -35,7 +47,7 @@ A similar problem appears when trying to modify components of Vectors by extract
 ```tc
 line test = vec(1)/3; // vec(0.33333333333...)
 
-test = test.setComponent(test.getComponent(comp="X"), comp="X");
+test.x = test.x;
 // test now is vec(0.333, 0.333333333..., 0.333333333...)
 // just by extracting the component to a number, precision is already lost.
 ```
