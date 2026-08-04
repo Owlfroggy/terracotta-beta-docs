@@ -1,6 +1,6 @@
 // this might actually genuinely be the worst code ive ever written
 // i will probably go to hell for this
-const DATADUMP_VERSION = "1.0.0-beta.4_1";
+const DATADUMP_VERSION = "1.0.0-beta.5";
 
 let datadump = null;
 async function loadData() {
