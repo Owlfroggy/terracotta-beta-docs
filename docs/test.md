@@ -96,7 +96,7 @@ process player_loop {repeat {
         entity.setDisplayTeleportDuration(3);
         entity.teleport(global "cam_pos p#%default" + vec(0, 10, 0));
         entity.setRotation(90,-90);
-    select nothing;
+    select reset;
 
     perselected {}
 
@@ -177,7 +177,7 @@ function player_move(dir: vec) {
             entity.setDisplayInterpolation(1);
         }
         entity.teleport(global "pos p#%default" + vec(.5,.5,.5));
-    select nothing;
+    select reset;
 
     
     default.playSound(snd("Piston Retract"), global "pos p#%default");

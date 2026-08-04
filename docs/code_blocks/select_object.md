@@ -16,14 +16,14 @@ global "isHunter %selected" = 1;
 
 To reset the selection (equivalent to the block Select Object -> Reset) use:
 ```tc
-select nothing();
+select reset();
 ```
 
 Unlike normal actions, select actions can optionally exclude their arguments list. This is equivalent to passing in no arguments.
 ```tc
 // these do the exact same thing
-select nothing;
-select nothing();
+select reset;
+select reset();
 
 // these do the exact same thing
 select allPlayers;
