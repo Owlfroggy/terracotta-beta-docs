@@ -97,6 +97,14 @@ global exponented **= 3;
 global moduloed   %=  2;
 ```
 
+Additionally, `++` and `--` can be used to increment/decrement a number by one. This only works as a standalone statement and can not be used in expressions.
+```tc
+line test = 0;
+test++; // adds one
+test--; // subtracts one
+// back where we started!
+```
+
 All forms of [Bitwise operations](../code_values/number.md#bitwise-operations) can be made into incrementors by putting a `=` on the end.   
 
 ## Typecasting
