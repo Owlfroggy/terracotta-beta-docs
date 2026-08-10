@@ -26,7 +26,8 @@ Terracotta supports the following operators:
  - `*` - Multiplication
  - `/` - Division
  - `**` - Exponentiation
- - `%` - Modulo
+ - `%` - Remainder
+ - `%%` - Modulo
  - [Bitwise operations](../code_values/number.md#bitwise-operations)
 
 ## Order of Operations
@@ -45,7 +46,7 @@ Terracotta operators follow a similar order of operations to most normal program
     | 14.| Logical NOT, bitwise NOT | `!`, `~`
     | 13.| Typecasting | `as`
     | 12.| Exponentiation | `^`
-    | 11.| Multiplication, division, and modulo | `*`, `/`, `%`
+    | 11.| Multiplication, division, remainder, and modulo | `*`, `/`, `%`, `%%`
     | 10.| Addition and subtraction | `+`, `-`
     | 9. | Bitwise Shifts | `<<`, `>>`, `>>>`
     | 8. | Relational comparisons | `<`, `>`, `<=`, `>=`
@@ -94,7 +95,8 @@ global subtracted -=  2389;
 global multiplied *=  100;
 global divided    /=  10;
 global exponented **= 3;
-global moduloed   %=  2;
+global remainderd %=   2;
+global moduloed   %%=  2;
 ```
 
 Additionally, `++` and `--` can be used to increment/decrement a number by one. This only works as a standalone statement and can not be used in expressions.

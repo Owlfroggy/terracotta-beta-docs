@@ -96,12 +96,20 @@ Raises the left Number to the power of the right Number.
 2 ** 10 = 1024
 ```
 
-### % (Modulus)
+### % (Remainder)
 
 #### `num` % `num`: `num`
+Returns the remainder after dividing the left Number by the right Number.
+```tc
+-1 % 10 = -1
+```
+
+### %% (Modulus)
+
+#### `num` %% `num`: `num`
 Returns the modulus of the left Number and the right Number.
 ```tc
--43 % 20 = -3
+-1 %% 10 = 9
 ```
 
 ### Bitwise Operations
