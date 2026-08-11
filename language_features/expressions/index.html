@@ -1,0 +1,2186 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://owlfroggy.github.io/terracotta-beta-docs/language_features/expressions/">
+      
+      
+        <link rel="prev" href="../../action_converter/">
+      
+      
+        <link rel="next" href="../../code_values/number/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Expressions - Terracotta Beta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+    window.siteBaseUrl = "../../";
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#expressions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Terracotta Beta" class="md-header__button md-logo" aria-label="Terracotta Beta" data-md-component="logo">
+      
+  <img src="../../assets/logo_monochrome.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Terracotta Beta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Expressions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Terracotta Beta" class="md-nav__button md-logo" aria-label="Terracotta Beta" data-md-component="logo">
+      
+  <img src="../../assets/logo_monochrome.svg" alt="logo">
+
+    </a>
+    Terracotta Beta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/installation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/plot_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plot Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/language_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../action_converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action/Value Converter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Language Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expressions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#value-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order-of-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order of Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inlined-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inlined Function Calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incrementors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incrementors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typecasting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typecasting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexing Operation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditional-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional Expressions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditional Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#condition-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condition Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logical Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short-Circuit Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditions-as-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions as Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implicit-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implicit Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Values
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Code Values
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Number
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/styled_text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Styled Text
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/location/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Location
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/potion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Potion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/sound/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sound
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/particle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Particle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_values/game_value/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Value
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Blocks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Code Blocks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/set_variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set Variable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/select_object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Select Object
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/if/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If / Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_blocks/repeat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeat (loops)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#value-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order-of-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order of Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inlined-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inlined Function Calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incrementors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incrementors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typecasting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typecasting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexing Operation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditional-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional Expressions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditional Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#condition-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condition Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logical Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short-Circuit Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditions-as-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions as Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implicit-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implicit Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    About
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Language Features
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="expressions">Expressions<a class="headerlink" href="#expressions" title="Permanent link">&para;</a></h1>
+<p>Expressions are one of Terracotta's most powerful features. They allow you to conveniently generate complex values in the places they're actually being used, and they let you forget about having to manually juggle all the intermediate temporary variables.</p>
+<p>In Terracotta, you can write an expression anywhere you can put a value. If you're unsure whether or not a certain value accepts expressions, just try it! It will likely just work, and if it doesn't you'll be given a convenient error informing you of the exception.</p>
+<p>For uses of the Set Variable block not covered by expressions, see <a href="../../code_blocks/set_variable/">Set Variable</a>.</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ks">line</span><span class="nv"> reward</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nn">num</span><span class="o">.</span><span class="nf">round</span><span class="pp">(</span><span class="nn">game</span><span class="o">.</span><span class="py">playerCount</span><span class="err"> </span><span class="o">*</span><span class="err"> ks_bonus </span><span class="o">*</span><span class="err"> </span><span class="pp">(</span><span class="ks">global</span><span class="err"> </span><span class="s">&quot;killstreak %default&quot;</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="m">10</span><span class="pp">))</span><span class="err">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nn">default</span><span class="o">.</span><span class="nf">teleport</span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="py">location</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="py">direction</span><span class="err"> </span><span class="o">*</span><span class="err"> </span><span class="ks">global</span><span class="err"> </span><span class="s">&quot;teleport_range %default&quot;</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nn">default</span><span class="o">.</span><span class="nf">givePotionEffect</span><span class="pp">(</span><span class="nc">pot</span><span class="pp">(</span><span class="s">&quot;Speed&quot;</span><span class="o">,</span><span class="err"> </span><span class="m">1</span><span class="o">,</span><span class="err"> </span><span class="pp">(</span><span class="m">10</span><span class="o">*</span><span class="m">20</span><span class="pp">)</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nn">num</span><span class="o">.</span><span class="nf">random</span><span class="pp">(</span><span class="m">0</span><span class="o">,</span><span class="err">max_potion_bonus</span><span class="pp">)))</span><span class="err">;</span>
+</span></code></pre></div>
+<h2 id="value-operators">Value Operators<a class="headerlink" href="#value-operators" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Many operators work on more types of code values than just numbers. For more info on which operators work with which code values, check out the code values' respective pages under the Code Values category.</p>
+</div>
+<p>Terracotta supports the following operators:</p>
+<ul>
+<li><code>+</code> - Addition</li>
+<li><code>-</code> - Subtraction</li>
+<li><code>*</code> - Multiplication</li>
+<li><code>/</code> - Division</li>
+<li><code>**</code> - Exponentiation</li>
+<li><code>%</code> - Remainder</li>
+<li><code>%%</code> - Modulo</li>
+<li><a href="../../code_values/number/#bitwise-operations">Bitwise operations</a></li>
+</ul>
+<h2 id="order-of-operations">Order of Operations<a class="headerlink" href="#order-of-operations" title="Permanent link">&para;</a></h2>
+<p>Terracotta operators follow a similar order of operations to most normal programming languages. Arithmetic operations follow PEMDAS/BEDMAS/BODMAS. For a complete breakdown, expand the box below.</p>
+<details class="info">
+<summary>Operator precedence</summary>
+<p>Operations closer to the top of this list are evaluated before things closer to the bottom. Operations on the same line of this list are evaluated from left to right.
+<br><br></p>
+<blockquote>
+<p>HIGHER UP: EVALUATED EARLIER (Higher Precedence)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Precedence</th>
+<th>Name</th>
+<th>Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15.</td>
+<td>Nested expressions (parentheses), indexing into dicts/lists,<br>accessing namespace values, and calling functions</td>
+<td></td>
+</tr>
+<tr>
+<td>14.</td>
+<td>Logical NOT, bitwise NOT</td>
+<td><code>!</code>, <code>~</code></td>
+</tr>
+<tr>
+<td>13.</td>
+<td>Typecasting</td>
+<td><code>as</code></td>
+</tr>
+<tr>
+<td>12.</td>
+<td>Exponentiation</td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>11.</td>
+<td>Multiplication, division, remainder, and modulo</td>
+<td><code>*</code>, <code>/</code>, <code>%</code>, <code>%%</code></td>
+</tr>
+<tr>
+<td>10.</td>
+<td>Addition and subtraction</td>
+<td><code>+</code>, <code>-</code></td>
+</tr>
+<tr>
+<td>9.</td>
+<td>Bitwise Shifts</td>
+<td><code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&gt;&gt;&gt;</code></td>
+</tr>
+<tr>
+<td>8.</td>
+<td>Relational comparisons</td>
+<td><code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></td>
+</tr>
+<tr>
+<td>7.</td>
+<td>Equality comparisons</td>
+<td><code>==</code>, <code>!=</code></td>
+</tr>
+<tr>
+<td>6.</td>
+<td>Bitwise AND</td>
+<td><code>&amp;</code></td>
+</tr>
+<tr>
+<td>5.</td>
+<td>Bitwise XOR</td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Bitwise OR</td>
+<td><code>|</code></td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Logical AND</td>
+<td><code>&amp;&amp;</code></td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Logical OR</td>
+<td><code>||</code></td>
+</tr>
+<tr>
+<td>1.</td>
+<td>Assignment</td>
+<td><code>=</code>, <code>+=</code>, <code>-=</code>, etc.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>LOWER DOWN: EVALUATED LATER (Lower Precedence)</p>
+</blockquote>
+</details>
+<h2 id="inlined-function-calls">Inlined Function Calls<a class="headerlink" href="#inlined-function-calls" title="Permanent link">&para;</a></h2>
+<p>Any function that returns a value can be used in expressions. Some actions like Set Location Coordinate still return a value even if their description doesn't say so. Generally, if an action has <code>Variable - Variable to set</code> as its first parameter, it can be inlined.</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ks">line</span><span class="nv"> msg</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="s">&quot;You rolled a &quot;</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nn">num</span><span class="o">.</span><span class="nf">random</span><span class="pp">(</span><span class="m">1</span><span class="o">,</span><span class="m">6</span><span class="pp">)</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="s">&quot;!&quot;</span><span class="err">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="ks">line</span><span class="nv"> new_y_level</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="py">y</span><span class="o">.</span><span class="nf">floor</span><span class="pp">()</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="m">5</span><span class="err">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nn">player</span><span class="o">.</span><span class="nf">giveItems</span><span class="pp">(</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="err">    </span><span class="nc">item</span><span class="pp">(</span><span class="nn">var</span><span class="o">.</span><span class="nf">setToRandom</span><span class="pp">(</span><span class="s">&quot;cooked_porkchop&quot;</span><span class="o">,</span><span class="s">&quot;cooked_beef&quot;</span><span class="o">,</span><span class="s">&quot;golden_carrot&quot;</span><span class="pp">)</span><span class="o">,</span><span class="m">16</span><span class="pp">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="pp">)</span><span class="err">;</span>
+</span></code></pre></div>
+<p>Custom function calls can be inlined as long as the function being called specifies a return value.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">function</span><span class="err"> </span><span class="nf">get_coin_amount</span><span class="pp">()</span><span class="o">:</span><span class="err"> </span><span class="nc">num</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">    </span><span class="k">return</span><span class="err"> </span><span class="nn">num</span><span class="o">.</span><span class="nf">random</span><span class="pp">(</span><span class="m">5</span><span class="o">,</span><span class="err"> </span><span class="m">10</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="pp">}</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">playerevent</span><span class="err"> killPlayer </span><span class="pp">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="err">    </span><span class="ks">saved</span><span class="err"> </span><span class="s">&quot;coins %uuid&quot;</span><span class="err"> </span><span class="o">+=</span><span class="err"> </span><span class="nf">get_coin_amount</span><span class="pp">()</span><span class="err"> </span><span class="o">*</span><span class="err"> </span><span class="ks">saved</span><span class="err"> </span><span class="s">&quot;coin_multiplier %uuid&quot;</span><span class="err">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="pp">}</span>
+</span></code></pre></div></p>
+<p>For more information on calling functions, see <a href="../../code_blocks/action/#syntax">Action</a>, <a href="../../code_blocks/set_variable/#syntax">Set Variable</a>, or <a href="../../code_blocks/function/#calling-functions">Function</a></p>
+<h2 id="incrementors">Incrementors<a class="headerlink" href="#incrementors" title="Permanent link">&para;</a></h2>
+<p>Incrementors do an operation to a variable without having to write out <code>variablename = variablename &lt;operation&gt; &lt;value&gt;</code>.</p>
+<div class="language-tc highlight"><span class="filename">Incrementors</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ks">global</span><span class="nv"> added</span><span class="err">      </span><span class="o">+=</span><span class="err">  </span><span class="m">10</span><span class="err">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="ks">global</span><span class="nv"> subtracted</span><span class="err"> </span><span class="o">-=</span><span class="err">  </span><span class="m">2389</span><span class="err">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="ks">global</span><span class="nv"> multiplied</span><span class="err"> </span><span class="o">*=</span><span class="err">  </span><span class="m">100</span><span class="err">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="ks">global</span><span class="nv"> divided</span><span class="err">    </span><span class="o">/=</span><span class="err">  </span><span class="m">10</span><span class="err">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="ks">global</span><span class="nv"> exponented</span><span class="err"> </span><span class="o">**=</span><span class="err"> </span><span class="m">3</span><span class="err">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="ks">global</span><span class="nv"> remainderd</span><span class="err"> </span><span class="o">%=</span><span class="err">   </span><span class="m">2</span><span class="err">;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="ks">global</span><span class="nv"> moduloed</span><span class="err">   </span><span class="o">%%=</span><span class="err">  </span><span class="m">2</span><span class="err">;</span>
+</span></code></pre></div>
+<p>Additionally, <code>++</code> and <code>--</code> can be used to increment/decrement a number by one. This only works as a standalone statement and can not be used in expressions.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ks">line</span><span class="nv"> test</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="m">0</span><span class="err">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">test</span><span class="o">++</span><span class="err">; </span><span class="c">// adds one</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="err">test</span><span class="o">--</span><span class="err">; </span><span class="c">// subtracts one</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c">// back where we started!</span>
+</span></code></pre></div></p>
+<p>All forms of <a href="../../code_values/number/#bitwise-operations">Bitwise operations</a> can be made into incrementors by putting a <code>=</code> on the end.   </p>
+<h2 id="typecasting">Typecasting<a class="headerlink" href="#typecasting" title="Permanent link">&para;</a></h2>
+<p>Terracotta has a decent amount of type inference built in, so for most situations you won't have to worry about types. Sometimes though, the type of a value is unknown and must be specified manually in order to use it with operations. This can be done by adding <code>as &lt;type&gt;</code> after the value.</p>
+<p>In the below case, assume <code>spawn_location</code>'s type is unknown. For the compiler to know what to do when adding the vector to it, you have to manually specify that it's a location.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nn">player</span><span class="o">.</span><span class="nf">teleport</span><span class="pp">(</span><span class="err">spawn_location </span><span class="k">as</span><span class="err"> </span><span class="nc">loc</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nc">vec</span><span class="pp">(</span><span class="m">1</span><span class="o">,</span><span class="m">10</span><span class="o">,</span><span class="m">1</span><span class="pp">))</span><span class="err">;</span>
+</span></code></pre></div></p>
+<p>The <code>as</code> operator can be applied to anything, not just variables.</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nn">player</span><span class="o">.</span><span class="nf">teleport</span><span class="pp">(</span><span class="err">spawn_location_dict</span><span class="pp">[</span><span class="s">&quot;main&quot;</span><span class="pp">]</span><span class="err"> </span><span class="k">as</span><span class="err"> </span><span class="nc">loc</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nc">vec</span><span class="pp">(</span><span class="m">0</span><span class="o">,</span><span class="m">10</span><span class="o">,</span><span class="m">0</span><span class="pp">))</span><span class="err">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="ks">line</span><span class="nv"> new_tag</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nn">item</span><span class="o">.</span><span class="nf">getTag</span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="py">mainHandItem</span><span class="o">,</span><span class="s">&quot;damage&quot;</span><span class="pp">)</span><span class="err"> </span><span class="k">as</span><span class="err"> </span><span class="nc">num</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="m">10</span><span class="err">;</span>
+</span></code></pre></div>
+<h2 id="indexing-operation">Indexing Operation<a class="headerlink" href="#indexing-operation" title="Permanent link">&para;</a></h2>
+<p>Values in lists and dicts can be accessed via square bracket syntax from within expressions.</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ks">line</span><span class="nv"> data</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="err">    awesome_key</span><span class="o">:</span><span class="err"> </span><span class="s">&quot;woah&quot;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="pp">}</span><span class="err">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="err">data</span><span class="pp">[</span><span class="s">&quot;awesome_key&quot;</span><span class="pp">])</span><span class="err">; </span><span class="c">// woah</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="ks">line</span><span class="nv"> other_data</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">[</span><span class="m">1</span><span class="o">,</span><span class="m">2</span><span class="o">,</span><span class="s">&quot;buckle my shoe&quot;</span><span class="pp">]</span><span class="err">;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="err">other_data</span><span class="pp">[</span><span class="m">3</span><span class="pp">])</span><span class="err">; </span><span class="c">// buckle my shoe</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Even though you <em>can</em> easily do the same index operation in multiple places, it's not recommended. Every index operation creates more codeblocks, which uses more CPU. For this reason, if you know a value is not going to change, it's best to only index once and store the result in a variable.</p>
+<div class="admonition failure">
+<p class="admonition-title">Generates extra codeblocks</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ks">global</span><span class="nv"> locations</span><span class="o">: </span><span class="nc">dict</span><span class="pp">[</span><span class="nc">loc</span><span class="pp">]</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="err">    spawn</span><span class="o">:</span><span class="err"> </span><span class="nc">loc</span><span class="pp">(</span><span class="m">10</span><span class="o">,</span><span class="m">50</span><span class="o">,</span><span class="m">10</span><span class="pp">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="pp">}</span><span class="err">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="s">&quot;Teleporting to location&quot;</span><span class="o">,</span><span class="err"> locations</span><span class="pp">[</span><span class="s">&quot;spawn&quot;</span><span class="pp">])</span><span class="err">;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nn">player</span><span class="o">.</span><span class="nf">teleport</span><span class="pp">(</span><span class="err">locations</span><span class="pp">[</span><span class="s">&quot;spawn&quot;</span><span class="pp">])</span><span class="err">;</span>
+</span></code></pre></div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Best performance</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ks">global</span><span class="nv"> locations</span><span class="o">: </span><span class="nc">dict</span><span class="pp">[</span><span class="nc">loc</span><span class="pp">]</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="err">    spawn</span><span class="o">:</span><span class="err"> </span><span class="nc">loc</span><span class="pp">(</span><span class="m">10</span><span class="o">,</span><span class="m">50</span><span class="o">,</span><span class="m">10</span><span class="pp">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="pp">}</span><span class="err">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="ks">line</span><span class="nv"> selected_loc</span><span class="err"> </span><span class="o">=</span><span class="err"> locations</span><span class="pp">[</span><span class="s">&quot;spawn&quot;</span><span class="pp">]</span><span class="err">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="s">&quot;Teleporting to location&quot;</span><span class="o">,</span><span class="err"> selected_loc</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nn">player</span><span class="o">.</span><span class="nf">teleport</span><span class="pp">(</span><span class="err">selected_loc</span><span class="pp">)</span><span class="err">;</span>
+</span></code></pre></div>
+</div>
+<p>It's true that the above example is a bit unnecessary, but in loops or when using indexing operations that traverse multiple levels the saved CPU can really add up.</p>
+</div>
+<p>Indexes can themselves be expressions.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="ks">line</span><span class="nv"> scores</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">[</span><span class="m">23</span><span class="o">,</span><span class="m">925</span><span class="o">,</span><span class="m">78</span><span class="o">,</span><span class="m">873</span><span class="pp">]</span><span class="err">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="err">scores</span><span class="pp">[</span><span class="nn">num</span><span class="o">.</span><span class="nf">random</span><span class="pp">(</span><span class="m">1</span><span class="o">,</span><span class="m">4</span><span class="pp">)])</span><span class="err">;</span>
+</span></code></pre></div>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="ks">line</span><span class="nv"> teams</span><span class="o">: </span><span class="nc">dict</span><span class="pp">[{</span><span class="err">points</span><span class="o">:</span><span class="err"> </span><span class="nc">num</span><span class="pp">}]</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="err">    red</span><span class="o">:</span><span class="err"> </span><span class="pp">{</span><span class="err">points</span><span class="o">:</span><span class="err"> </span><span class="m">12</span><span class="pp">}</span><span class="o">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="err">    blue</span><span class="o">:</span><span class="err"> </span><span class="pp">{</span><span class="err">points</span><span class="o">:</span><span class="err"> </span><span class="m">15</span><span class="pp">}</span><span class="o">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="pp">}</span><span class="err">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="ks">line</span><span class="nv"> points</span><span class="err"> </span><span class="o">=</span><span class="err"> teams</span><span class="pp">[</span><span class="nn">var</span><span class="o">.</span><span class="nf">setToRandom</span><span class="pp">(</span><span class="s">&quot;red&quot;</span><span class="o">,</span><span class="s">&quot;blue&quot;</span><span class="pp">)][</span><span class="s">&quot;points&quot;</span><span class="pp">]</span><span class="err">;</span>
+</span></code></pre></div></p>
+<p>Multiple levels can be traversed; just make sure your variables are properly typed to avoid having to typecast.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="ks">global</span><span class="nv"> team_data</span><span class="o">: </span><span class="nc">dict</span><span class="pp">[{</span><span class="err">unlocks</span><span class="o">:</span><span class="err"> </span><span class="nc">list</span><span class="pp">[</span><span class="nc">str</span><span class="pp">]}]</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">({</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="err">    red_team</span><span class="o">:</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="err">        unlocks</span><span class="o">:</span><span class="err"> </span><span class="pp">[</span><span class="s">&quot;damageBoost&quot;</span><span class="o">,</span><span class="s">&quot;healthBoost&quot;</span><span class="pp">]</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="err">    </span><span class="pp">}</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="pp">})</span><span class="err">;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="ks">line</span><span class="nv"> first_unlock</span><span class="err"> </span><span class="o">=</span><span class="err"> team_data</span><span class="pp">[</span><span class="s">&quot;redTeam&quot;</span><span class="pp">][</span><span class="s">&quot;unlocks&quot;</span><span class="pp">][</span><span class="m">1</span><span class="pp">]</span><span class="err">;</span>
+</span></code></pre></div></p>
+<p>You can set dictionary values by indexing into them and using an assignment operator.</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="ks">global</span><span class="nv"> nums</span><span class="o">: </span><span class="nc">dict</span><span class="pp">[</span><span class="nc">num</span><span class="pp">]</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">{}</span><span class="err">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="err">nums</span><span class="pp">[</span><span class="s">&quot;key&quot;</span><span class="pp">]</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="m">100</span><span class="err">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="err">nums</span><span class="pp">[</span><span class="s">&quot;key&quot;</span><span class="pp">])</span><span class="err">; </span><span class="c">// 100</span>
+</span></code></pre></div>
+<p>Using this syntax to change nested values will change the value in the original dictionary.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="ks">global</span><span class="nv"> crazy</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="err">    words</span><span class="o">:</span><span class="err"> </span><span class="pp">[</span><span class="s">&quot;random value&quot;</span><span class="pp">]</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="pp">}</span><span class="err">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="err">crazy</span><span class="pp">[</span><span class="s">&quot;words&quot;</span><span class="pp">][</span><span class="m">0</span><span class="pp">]</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="s">&quot;jeremaster&quot;</span><span class="err">;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="err">crazy</span><span class="pp">[</span><span class="s">&quot;words&quot;</span><span class="pp">][</span><span class="m">0</span><span class="pp">])</span><span class="err">; </span><span class="c">// jeremaster</span>
+</span></code></pre></div></p>
+<h2 id="conditional-expressions">Conditional Expressions<a class="headerlink" href="#conditional-expressions" title="Permanent link">&para;</a></h2>
+<p>Conditions in Terracotta are much more capable than they are in standard DiamondFire. They can take full advantage of logical operators and the expression system, allowing you to easily write complex logic.</p>
+<p>For more information on where conditions can be used, see <a href="../../code_blocks/if/">If Statements</a>, <a href="../../code_blocks/repeat/#while-loops">While Loops</a>, and <a href="../../code_blocks/select_object/#conditions">Select Object</a>.</p>
+<h3 id="condition-actions">Condition Actions<a class="headerlink" href="#condition-actions" title="Permanent link">&para;</a></h3>
+<p>Condition action syntax is identical to <a href="../../code_blocks/action/">normal action syntax</a>. Just like normal actions, conditions relating to value types can be called as <a href="../../code_blocks/set_variable/#method-syntax">Methods</a>.</p>
+<p><div class="language-tc highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="nn">event</span><span class="o">.</span><span class="nf">commandEquals</span><span class="pp">(</span><span class="s">&quot;spawn&quot;</span><span class="pp">))</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="err">    </span><span class="nn">player</span><span class="o">.</span><span class="nf">teleport</span><span class="pp">(</span><span class="nc">loc</span><span class="pp">(</span><span class="m">5</span><span class="o">,</span><span class="m">50</span><span class="o">,</span><span class="m">5</span><span class="pp">))</span><span class="err">;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="pp">}</span>
+</span></code></pre></div>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">select</span><span class="err"> </span><span class="nf">playersByCondition</span><span class="err"> </span><span class="pp">(</span><span class="ks">saved</span><span class="err"> </span><span class="s">&quot;powerups %uuid&quot;</span><span class="o">.</span><span class="nf">contains</span><span class="pp">(</span><span class="s">&quot;speedBoost&quot;</span><span class="pp">))</span><span class="err">;</span>
+</span></code></pre></div></p>
+<details class="question">
+<summary>Expand this box to convert If Actions to their Terracotta equivalents</summary>
+<p>Click on "If Player" to change to a different code block.
+<tc-action-translator block="If Player">Loading...</tc-action-translator></p>
+</details>
+<h3 id="comparison-operators">Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permanent link">&para;</a></h3>
+<p>Comparison operators compare their left expression and right expression.
+The following comparison operators are available:</p>
+<ul>
+<li><code>==</code></li>
+<li><code>!=</code></li>
+<li><code>&lt;</code></li>
+<li><code>&gt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&gt;=</code></li>
+</ul>
+<p><code>==</code> and <code>!=</code> work with any types of values. <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code> only work with numbers.</p>
+<p><div class="language-tc highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="py">y</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="m">2</span><span class="err"> </span><span class="o">&gt;</span><span class="err"> </span><span class="m">100</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="err">    </span><span class="c">// ...code here</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="pp">}</span><span class="err">;</span>
+</span></code></pre></div>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">select</span><span class="err"> </span><span class="nf">playersByCondition</span><span class="err"> </span><span class="pp">(</span><span class="ks">saved</span><span class="err"> </span><span class="s">&quot;powerup %uuid&quot;</span><span class="err"> </span><span class="o">==</span><span class="err"> </span><span class="s">&quot;extraHealth&quot;</span><span class="pp">)</span><span class="err">;</span>
+</span></code></pre></div></p>
+<h3 id="logical-operators">Logical Operators<a class="headerlink" href="#logical-operators" title="Permanent link">&para;</a></h3>
+<p>The AND (<code>&amp;&amp;</code>) operator checks if two conditions are both true.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="nf">isFlying</span><span class="pp">()</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="py">y</span><span class="err"> </span><span class="o">&gt;</span><span class="err"> </span><span class="m">100</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="err">    </span><span class="c">// this code runs if you are flying AND you are above y=100</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="err">    </span><span class="nn">default</span><span class="o">.</span><span class="nf">sendActionBar</span><span class="pp">(</span><span class="s">s&quot;You flew too close to the sun!&quot;</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="err">    </span><span class="nn">default</span><span class="o">.</span><span class="nf">setFireTicks</span><span class="pp">(</span><span class="m">20</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="pp">}</span>
+</span></code></pre></div></p>
+<p>The OR (<code>||</code>) operator checks if at least one of two conditions is true.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="nf">hasItem</span><span class="pp">(</span><span class="nc">item</span><span class="pp">(</span><span class="s">&quot;emerald&quot;</span><span class="pp">))</span><span class="err"> </span><span class="o">||</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="nf">isStandingOnBlock</span><span class="pp">(</span><span class="nc">item</span><span class="pp">(</span><span class="s">&quot;emerald_block&quot;</span><span class="pp">)))</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="err">    </span><span class="c">// this code will run if you have an emerald or are standing on an emerald block</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="err">    </span><span class="c">// if both conditions are true, this code will still run</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="err">    </span><span class="nn">default</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="s">&quot;you survive!&quot;</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="pp">}</span>
+</span></code></pre></div></p>
+<p>The NOT operator (<code>!</code>) inverts a condition by checking if it is false. You can think of this as a more versatile version of the NOT arrow in DiamondFire.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="o">!</span><span class="nn">default</span><span class="o">.</span><span class="nf">hasPlotPermission</span><span class="pp">(</span><span class="err">permission</span><span class="o">=</span><span class="s">&quot;Developer&quot;</span><span class="pp">))</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="err">    </span><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="s">s&quot;&lt;red&gt;You do not have permission to use this command!&quot;</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="err">    </span><span class="k">return</span><span class="err">;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="pp">}</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="c">// you can use `!` to invert anything, not just individual condition actions</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="err"> </span><span class="o">!</span><span class="pp">(</span><span class="err">a </span><span class="o">&lt;</span><span class="err"> b </span><span class="o">||</span><span class="err"> </span><span class="o">!</span><span class="nn">default</span><span class="o">.</span><span class="nf">isFlying</span><span class="pp">())</span><span class="err"> </span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="err">    </span><span class="c">// ...code</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="pp">}</span>
+</span></code></pre></div></p>
+<p>Logical expressions can get arbitrarily complex, though you should remain aware that complex expressions such as the one below can generate a large number of code blocks.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="err">    </span><span class="o">!</span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="nf">isSprinting</span><span class="pp">()</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="nf">isSneaking</span><span class="pp">())</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="err">    </span><span class="o">||</span><span class="err"> </span><span class="pp">(</span><span class="nn">game</span><span class="o">.</span><span class="nf">blockEquals</span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="py">location</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nc">vec</span><span class="pp">(</span><span class="m">0</span><span class="o">,</span><span class="m">1</span><span class="o">,</span><span class="m">0</span><span class="pp">)</span><span class="o">,</span><span class="err"> </span><span class="nc">item</span><span class="pp">(</span><span class="s">&quot;coal&quot;</span><span class="pp">)))</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="err">    </span><span class="o">||</span><span class="err"> </span><span class="pp">(</span><span class="m">50</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="py">y</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="py">y</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="m">100</span><span class="pp">)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="err">    </span><span class="c">// do... something.....</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="pp">}</span>
+</span></code></pre></div></p>
+<h3 id="short-circuit-evaluation">Short-Circuit Evaluation<a class="headerlink" href="#short-circuit-evaluation" title="Permanent link">&para;</a></h3>
+<p>The <code>&amp;&amp;</code> and <code>||</code> operators do short-circuit evaluation. If a logical operator's second condition would not change its result, the second condition's code will not be run at all.</p>
+<p>In the example <code>a &amp;&amp; b</code>, <code>b</code> will not be checked at all if <code>a</code> is false. This is because if <code>a</code> is false, there is no way for the <code>&amp;&amp;</code> operator to ever be true, so <code>b</code> doesn't need to run.</p>
+<p>In the example <code>a || b</code>, <code>b</code> will not be checked at all if <code>a</code> is true. This is because if <code>a</code> is true, the <code>||</code> operator will be true no matter what the value of <code>b</code> is, so <code>b</code> doesn't need to run.</p>
+<div class="admonition info">
+<p class="admonition-title">Example using <code>&amp;&amp;</code></p>
+<p><div class="language-tc highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">function</span><span class="err"> </span><span class="nf">first_func</span><span class="pp">()</span><span class="o">:</span><span class="err"> </span><span class="nc">num</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="err">    </span><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="s">&quot;first func ran!&quot;</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="err">    </span><span class="k">return</span><span class="err"> </span><span class="m">0</span><span class="err">;</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="pp">}</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="kd">function</span><span class="err"> </span><span class="nf">second_func</span><span class="pp">()</span><span class="o">:</span><span class="err"> </span><span class="nc">str</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="err">    </span><span class="nn">player</span><span class="o">.</span><span class="nf">sendMessage</span><span class="pp">(</span><span class="s">&quot;second func ran!&quot;</span><span class="pp">)</span><span class="err">;</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="err">    </span><span class="k">return</span><span class="err"> </span><span class="s">&quot;literally anything&quot;</span><span class="err">;</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="pp">}</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="kd">playerevent</span><span class="err"> join </span><span class="pp">{</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="err">    </span><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="nf">first_func</span><span class="pp">()</span><span class="err"> </span><span class="o">==</span><span class="err"> </span><span class="m">1</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> </span><span class="nf">second_func</span><span class="pp">()</span><span class="err"> </span><span class="o">==</span><span class="err"> </span><span class="m">1</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="err">        </span><span class="c">// ...</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="err">    </span><span class="pp">}</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="pp">}</span>
+</span></code></pre></div>
+Compiling the above example will send <code>first func ran!</code> but not <code>second func ran!</code>. <code>first_func()</code> returned 0 and <code>0 == 1</code> is false. There is now no way for the <code>&amp;&amp;</code> expression to ever be true so the right-hand side of the <code>&amp;&amp;</code> operator doesn't need to be checked and <code>second_func()</code> will never be ran.</p>
+<p>If first_func() instead returned <code>1</code>, you would see both <code>first func ran!</code> and <code>second func ran!</code>. The left side of <code>&amp;&amp;</code> would be true, which would mean the right side <em>would</em> need to be evaluated and <code>second_func()</code> would execute.</p>
+</div>
+<h3 id="conditions-as-values">Conditions as Values<a class="headerlink" href="#conditions-as-values" title="Permanent link">&para;</a></h3>
+<p>Conditional expressions aren't limited to contexts that expect conditions. Placing them in other contexts will cause them to evaluate to <code>0</code> if the condition is false or <code>1</code> if the condition is true.</p>
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c">// prints 1 if the player is flying</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="c">// prints 0 if they are not</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="k">print</span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="nf">isFlying</span><span class="pp">())</span><span class="err">;</span>
+</span></code></pre></div>
+<p>This rule also applies to more complex conditions.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c">// will be 0 if the player is sprint-sneaking</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c">// will be 1 otherwise</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="ks">line</span><span class="nv"> not_sprint_sneaking</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="o">!</span><span class="pp">(</span><span class="nn">default</span><span class="o">.</span><span class="nf">isSprinting</span><span class="pp">()</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> </span><span class="nn">default</span><span class="o">.</span><span class="nf">isSneaking</span><span class="pp">())</span><span class="err">;</span>
+</span></code></pre></div></p>
+<h3 id="implicit-comparison">Implicit Comparison<a class="headerlink" href="#implicit-comparison" title="Permanent link">&para;</a></h3>
+<p>Using a standalone value as a condition is equivalent to checking if that value != 0.
+<div class="language-tc highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c">// these both do the exact same thing</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="err">some_variable</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="pp">}</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="err">some_variable </span><span class="o">!=</span><span class="err"> </span><span class="m">0</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="pp">}</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c">// these both do the exact same thing</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="o">!</span><span class="err">whatever</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="pp">}</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="err">whatever </span><span class="o">==</span><span class="err"> </span><span class="m">0</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="pp">}</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="c">// these both do the exact same thing</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="err">always_succeed </span><span class="o">||</span><span class="err"> </span><span class="nn">num</span><span class="o">.</span><span class="nf">random</span><span class="pp">(</span><span class="m">0</span><span class="o">,</span><span class="m">5</span><span class="pp">))</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="pp">}</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="k">if</span><span class="err"> </span><span class="pp">(</span><span class="err">always_succeed </span><span class="o">!=</span><span class="err"> </span><span class="m">0</span><span class="err"> </span><span class="o">||</span><span class="err"> </span><span class="nn">num</span><span class="o">.</span><span class="nf">random</span><span class="pp">(</span><span class="m">0</span><span class="o">,</span><span class="m">5</span><span class="pp">)</span><span class="err"> </span><span class="o">!=</span><span class="err"> </span><span class="m">0</span><span class="pp">)</span><span class="err"> </span><span class="pp">{</span>
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="pp">}</span>
+</span></code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Owlfroggy/terracotta" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/at9uBFXPxy" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.expand", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../action_translator.js"></script>
+      
+    
+  </body>
+</html>
