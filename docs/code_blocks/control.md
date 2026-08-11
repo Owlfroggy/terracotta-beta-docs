@@ -138,7 +138,7 @@ The `break` keyword acts as a StopRepeat control block.
 ```tc title="Prints every whole number from 1-6"
 for (line i of range(1,10)) {
     if (i == 7) {
-        continue;
+        break;
     }
     print(i);
 }
@@ -149,7 +149,7 @@ All the same placement rules that apply to `continue` apply to `break`.
 ```tc title="Also prints every whole number from 1-6"
 function breakLogic(i: num) {
     if (i == 7) {
-        continue;
+        break;
     }
 }
 
