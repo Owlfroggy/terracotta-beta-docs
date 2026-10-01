@@ -5,19 +5,17 @@ Particles are created using the `par` constructor. Like all constructors in Terr
 par(particle: str, ...fields)
 ```
 
-`particle` is the name of the potion that appears at the top of a particle effect's button, NOT its minecraft id.
+`particle` is the particle's minecraft id. The "minecraft:" prefix is not required.
 
 ```tc
-par("Critical Hit")
+par("crit")
 ```
-
-![Clarification Image](../assets/particle_arg_clarification.png){width="500"}
 
 ## Fields
 Data about the behavior of a particle like amount, color, spread, etc. are provided via named arguments. All fields are optional and will use default values if ommitted.
 
 ```tc 
-par("Dust",
+par("dust",
     amount = 10,
     spreadHoriz = 1, spreadVert = 1,
     color = "#ff0000",
@@ -162,7 +160,7 @@ power = 40 // 2 seconds
 #### `txt` + `par`: `txt`
 Stringifies the Particle then adds it onto the Styled Text.
 ```tc
-s"Selected trail: " + par("Flame") = s"Selected Trail: Flame[1][0.0,0.0][1.0,0.0,0.0|100%]"
+s"Selected trail: " + par("flame") = s"Selected Trail: Flame[1][0.0,0.0][1.0,0.0,0.0|100%]"
 
-par("Bubble") + s" is a particle." = s"Bubble[1][0.0,0.0][1.0,0.0,0.0|100%] is a particle."
+par("bubble") + s" is a particle." = s"Bubble[1][0.0,0.0][1.0,0.0,0.0|100%] is a particle."
 ```

@@ -171,15 +171,19 @@ print(waste_cpu("input") + " with a suffix"); // "input with a suffix"
 print(call waste_cpu("input") + " with a suffix"); // "input with a suffix"
 ```
 
-If a function returns multiple values, you must assign variables and cannot use them directly in an expression.
+If a function returns multiple values, you can access the extra return values by providing more variables.
 ```tc
-print(return_multiple()) // error! you must grab the result in vars first
-
 line first, line second = return_multiple();
 
 // you do not have to grab every value that is returned from
 // a function, here the second value is being thrown away
 line first = return_multiple();
+```
+
+If you only need one of the values being returned, you can index into the function call. This allows multi-return-value functions to be called in expressions.
+```tc
+// gets the second return value of return_multiple
+print(return_multiple()[2]);
 ```
 
 

@@ -36,7 +36,7 @@ if (player.hasPlotPermission(permission="Owner")) {
 ```
 ```tc title="Example"
 while (default.attackCooldownTicks > 0) {
-    player.givePotionEffect(pot("Slowness"));
+    player.givePotionEffect(pot("slowness"));
     wait;
 }
 default.clearPotionEffects();
@@ -126,7 +126,7 @@ Single-line comments start with `//`.
 player.sendMessage("Hello world!"); // End-of-line comment
 
 // Code can be commented out to disable it:
-//default.playSound(snd("Pling"));
+//default.playSound(snd("block.note_block.pling"));
 ```
 
 Block comments are surrounded with `/*` and `*/`.

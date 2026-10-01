@@ -11,7 +11,7 @@ line reward = num.round(game.playerCount * ks_bonus * (global "killstreak %defau
 
 default.teleport(default.location + default.direction * global "teleport_range %default");
 
-default.givePotionEffect(pot("Speed", 1, (10*20) + num.random(0,max_potion_bonus)));
+default.givePotionEffect(pot("speed", 1, (10*20) + num.random(0,max_potion_bonus)));
 ```
 
 ## Value Operators

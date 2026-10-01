@@ -39,7 +39,7 @@ player.sendMessage(align=some_random_var ?? "Centered")
 ## Player/Entity Actions
 Player and entity actions use the `player` and `entity` namespaces respectively.
 ```tc
-player.givePotionEffect(pot("Speed"), particles="None", overwrite="False");
+player.givePotionEffect(pot("speed"), particles="None", overwrite="False");
 entity.damage(5);
 ```
 

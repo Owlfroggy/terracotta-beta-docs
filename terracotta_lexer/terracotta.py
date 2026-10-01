@@ -64,6 +64,7 @@ class TerracottaLexer(RegexLexer):
 
             #constructors
             (r'(?:(?<=\W)|^)(vec|snd|csnd|loc|par|item|litem|pot)(?=\s*\()',Name.Class),
+            (r'(?:(?<=\W)|^)(bvar)(?=\s*\()',Keyword.Scope),
 
             #keywords
             (r'(?:(?<=\W)|^)(start|call|import|select|filter|if|repeat|else|do|while|for|as|of|to|return|returnmult|break|continue|endthread|endallthreads|wait|print|perselected)(?![\w])',Keyword),

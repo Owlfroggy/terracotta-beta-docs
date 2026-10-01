@@ -67,6 +67,7 @@ nav:
     - Sound: code_values/sound.md
     - Particle: code_values/particle.md
     - Game Value: code_values/game_value.md
+    - Bucket Variable: code_values/bucket_variable.md
   - Code Blocks:
     - Event: code_blocks/event.md
     - Function: code_blocks/function.md

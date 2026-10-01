@@ -1,12 +1,11 @@
 // this might actually genuinely be the worst code ive ever written
 // i will probably go to hell for this
-const DATADUMP_VERSION = "1.0.0-beta.5";
 
 let datadump = null;
 async function loadData() {
   try {
     const baseUrl = window.siteBaseUrl || '/';
-    const assetRelativePath = `${baseUrl}assets/datadump_${DATADUMP_VERSION}.json`;
+    const assetRelativePath = `${baseUrl}assets/datadump.json`;
     const targetUrl = new URL(assetRelativePath, window.location.href);
     const response = await fetch(targetUrl); 
     

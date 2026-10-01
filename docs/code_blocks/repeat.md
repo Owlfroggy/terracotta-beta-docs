@@ -52,7 +52,7 @@ The following actions are supported:
 
 ```tc
 for (line l of path(damager.eyeLocation,victim.location)) {
-    allPlayers.displayParticleEffect(par("Flame"), l);
+    allPlayers.displayParticleEffect(par("flame"), l);
 }
 
 for (line i of range(5,10,2)) {
@@ -87,7 +87,7 @@ for (line k, line v of data) {
 }
 ```
 ```tc title="Inlining Example"
-for (line particle of [par("Flame"),par("Cloud")]) {
+for (line particle of [par("flame"),par("cloud")]) {
     allPlayers.displayParticleEffect(default.location,particle);
 }
 ```
